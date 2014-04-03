@@ -1,0 +1,7 @@
+Bundle 'spf13/conque_2.3'
+Bundle 'spf13/gundo'
+Bundle 'spf13/UltiSnips-2.2'
+Bundle 'spf13/hilinks'
+Bundle 'spf13/nextfile'
+Bundle 'spf13/supertab'
+Bundle 'spf13/jshint.vim'

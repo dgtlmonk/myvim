@@ -1,0 +1,56 @@
+map <F8> :so ~/.vimrc.local <CR>
+map <S-n> :NERDTreeToggle <CR>
+map <S-s> :w <CR>
+map <C-z> :GundoToggle <CR>
+map <S-f> :CtrlP<CR>
+map <S-c> :t.<CR>
+map <c-d> :<< <CR>
+map <S-z> :u <CR>
+map <S-e> :bp <CR>
+
+autocmd FileType css,scss set iskeyword=@,48-57,_,-,?,!,192-255
+
+"vmap <S-p> y'>p
+
+let NERDTreeQuitOnOpen=0
+
+" wordwrap on
+set wrap
+
+" auto complete on
+set completeopt=longest,menuone
+
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+
+
+set clipboard=autoselect
+set background=dark
+color obsidian
+" color maroloccio
+
+set foldmethod=syntax
+set foldcolumn=1
+
+com -nargs=1 R call RunCommand(<f-args>)
+fu! RunCommand ( command )
+    exe ":ConqueTermSplit "  .  a:command
+endf
+
+" Send more characters for redraws
+set ttyfast
+ 
+" Enable mouse use in all modes
+set mouse=a
+ 
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
